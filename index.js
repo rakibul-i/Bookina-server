@@ -1,12 +1,13 @@
 const express = require("express");
 const cors = require("cors");
-const port = process.env.PORT || 5050;
 const { MongoClient } = require("mongodb");
 require("dotenv").config();
 const ObjectId = require("mongodb").ObjectId;
 
 const app = express();
+const port = process.env.PORT || 5050;
 
+// middleware
 app.use(express.json());
 app.use(cors());
 
@@ -74,7 +75,6 @@ const bookinaDB = async () => {
     // update  booking status
     app.put("/bookings", async (req, res) => {
       const id = req.body.id;
-      console.log(req.body);
       const filter = { _id: ObjectId(id) };
       const options = { upsert: true };
 
