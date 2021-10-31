@@ -47,7 +47,7 @@ const bookinaDB = async () => {
       res.json(result);
     });
 
-    // get  bookings for particular user
+    // get  bookings for particular
 
     app.get("/bookings", async (req, res) => {
       const email = req.query.email;
